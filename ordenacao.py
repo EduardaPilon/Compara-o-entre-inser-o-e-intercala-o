@@ -1,4 +1,3 @@
-
 def ordenacao_insercao(lista):
     lista = lista.copy()
     comparacoes = 0
@@ -24,14 +23,14 @@ def ordenacao_insercao(lista):
 def ordenacao_intercalacao(lista):
     comparacoes = [0]
 
-    def ordenar(lista):
-        if len(lista) <= 1:
-            return lista
+    def ordenar(parte):
+        if len(parte) <= 1:
+            return parte
 
-        meio = len(lista) // 2
+        meio = len(parte) // 2
 
-        esquerda = ordenar(lista[:meio])
-        direita = ordenar(lista[meio:])
+        esquerda = ordenar(parte[:meio])
+        direita = ordenar(parte[meio:])
 
         resultado = []
         i = 0
@@ -52,6 +51,4 @@ def ordenacao_intercalacao(lista):
 
         return resultado
 
-    lista_ordenada = ordenar(lista)
-
-    return lista_ordenada, comparacoes[0]
+    return ordenar(lista), comparacoes[0]
